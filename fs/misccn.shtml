@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="padding:0px;">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style2.css" />
+
+</head>
+<style>
+html { overflow-x:hidden; }
+</style>
+<body>
+
+<form action="misc.cgi" method="get">
+
+  <div class="top_content" style="height:auto">
+  <div class="top">
+    <p>参数</p>
+  </div>
+  <table width="100%" border="0" cellpadding="2" cellspacing="2" >
+    <tbody>
+      <tr>
+        <td width="50%" bgcolor="#FFFFFF" class="gr"><div align="right">模块名称：</div></td>
+        <td><div align="left">
+          <!--#modninp-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">保留：</div></td>
+        <td><div align="left">
+          <!--#pnpinp-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">网页端口：</div></td>
+        <td><div align="left">
+          <!--#htpprt-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">模块ID（用来识别模块，可用于D2D转发）：</div></td>
+        <td><div align="left">
+          <!--#id-->
+          (1~65535)</div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">ID类型（可用于D2D转发）：</div></td>
+        <td><div align="left">
+          <!--#idtype-->
+          (0/1/2/3)</div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">MAC地址（可修改）：</div></td>
+        <td><div align="left">
+            <!--#usrmac-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">用户名：</div></td>
+        <td><div align="left">
+            <!--#username-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">密码：</div></td>
+        <td><div align="left">
+            <!--#password-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">是否缓存数据：</div></td>
+        <td><div align="left">
+          <!--#ifbuf-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">无数据复位时间：</div></td>
+        <td><div align="left">
+          <!--#tout--> second
+        </div></td>
+      </tr>
+
+      <tr>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button class="button" type="submit">保存设置</button>
+<button class="button" type="reset" onclick="window.location.href='misccn.shtml' ">不保存设置</button>
+</form>
+
+	<div id="sidebar">
+      <ul>
+        <li>帮助提示</li>
+      </ul>
+	  <div id="help">
+	  <div align="left">
+	    <ul>
+		 <li id="lia">模块名称：</li>
+         <li id="lib">最长不能超过15个字节</li>
+	     <li id="lia">网页端口：</li>
+	     <li id="lib">网页访问的端口，默认为80</li>
+	     <li id="lia">模块ID与ID类型：</li>
+	     <li id="lib">可用于D2D数据转发</li>
+	     <li id="lia">MAC地址：</li>
+	     <li id="lib">用户可以修改此MAC地址</li>
+	     <li id="lia">复位超时：</li>
+	     <li id="lib">0-60之间表示不启用，大于60表示本时间内没有接收到网络数据，模块将会复位</li>
+	    </ul>
+		</div>
+	  </div>
+    </div>
+	
+</body>
+</html>

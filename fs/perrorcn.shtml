@@ -1,0 +1,10 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<link href="./styles.css" rel="stylesheet" media="screen"><title>Parameter Error</title>
+
+</head>
+<body>
+<h2>参数错误</h2>
+<p>一个或者多个输入到页面上的参数不符合要求或者丢失， 请返回到刚才的配置页面检查输入的值，然后重新提交。</p>
+</body></html>

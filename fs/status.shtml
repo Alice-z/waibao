@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="padding:0px;">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style2.css" />
+
+</head>
+<style>
+html { overflow-x:hidden; }
+</style>
+<script type="text/javascript" language="JavaScript"><!--
+function CheckDefaults(myForm)
+{
+var answer = confirm("This will erase all existing configuration changes and restore factory default settings. Click OK if you are sure you want to do this or Cancel to retain existing settings.");
+if(answer == false)
+{
+alert("Existing configuration settings have been retained.");
+}
+return(answer);
+}
+
+function CheckRestart(myForm)
+{
+var answer = confirm("This will Restart the module,are you sure to do this?");
+if(answer == false)
+{
+alert("Restart have been cancle.");
+}
+else
+{
+	top.location = "/login.cgi?restart";
+}
+}
+//-->
+</script>
+
+<body>
+<form action="ip.cgi" method="get" name="ip">
+
+<div class="top_content" style="height:auto">
+  <div class="top">
+    <p>parameter</p>
+    </div>
+  <table width="100%" height="260" border="0" bordercolor="#CCCCCC">
+
+    <tr>
+      <td width="30%" class="gr"><div align="right">Module Name:</div></td>
+      <td width="70%"><div align="left"><b>
+        <!--#modname-->
+      </b></div></td>
+    </tr>
+    <tr>
+      <td class="gr"><div align="right">Firmware Revision:</div></td>
+      <td><div align="left">
+        <!--#revision-->
+      </div></td>
+    </tr>
+    <tr>
+      <td class="gr"><div align="right">Current IP
+        Address:</div></td>
+      <td><div align="left">
+        <!--#ipaddr-->
+      </div></td>
+    </tr>
+    <tr>
+      <td class="gr"><div align="right">MAC Address:</div></td>
+      <td><div align="left">
+        <!--#macaddr-->
+      </div></td>
+    </tr>
+    <tr>
+      <td class="gr"><div align="right">Run Time: </div></td>
+      <td><div align="left">
+          <!--#runtime-->
+      </div></td>
+    </tr>
+    <tr>
+      <td class="gr"><div align="right">TX Count(ETH) : </div></td>
+      <td><div align="left">
+          <!--#txcnt-->
+      </div></td>
+    </tr>
+    <tr>
+      <td class="gr"><div align="right">RX Count(ETH) : </div></td>
+      <td><div align="left">
+        <!--#rxcnt-->
+      </div></td>
+    </tr>
+    <tr>
+      <td class="gr"><div align="right">Conn Status(ETH) : </div></td>
+      <td><div align="left">
+        <!--#conns-->
+      </div></td>
+    </tr>
+		
+  </table>
+  </div>
+
+
+</form>
+
+	<div id="sidebar">
+      <ul>
+        <li>help</li>
+      </ul>
+	  <div id="help">
+	    <div align="left">
+	      <ul>
+	        <li id="lia">Run time:</li>
+	        <li id="lib">run time means the minutes since latest reboot </li>
+	        <li id="lia">TX/RX Count: </li>
+	        <li id="lb">TX/RX count give us a calculation of the total byte we have been received or send. </li>
+          </ul>
+        </div>
+	  </div>
+    </div>
+	
+</body>
+</html>

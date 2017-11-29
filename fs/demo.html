@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="demo.css">
+	<link rel="stylesheet" href="ele.css">
+</head>
+
+<body>
+
+	<div id="app">
+		<div id="left">
+				<el-tag type="info">通信方式</el-tag>
+				<div class="border info">
+					<div>
+						串口通信 <span style="margin-left:20px">串口号:</span>
+						<el-select v-model="value" class="sele" placeholder="请选择">
+								<el-option
+									v-for="item in options"
+									:key="item.value"
+									:label="item.label"
+									:value="item.value">
+								</el-option>
+							</el-select>						
+					 </div>
+				</div>
+				<!-- <el-button type="primary">主要按钮</el-button> -->
+				
+
+		</div>
+		<div id="right"> </div>
+	</div>
+	<script src="vue.js" > </script>
+	<script src="ele.js"> </script>
+	<script>
+		new Vue({
+			el:'#app',
+			data() {
+				return {
+					options: [{
+						value: '选项1',
+						label: '黄金糕'
+					}, {
+						value: '选项2',
+						label: '双皮奶'
+					}, {
+						value: '选项3',
+						label: '蚵仔煎'
+					}, {
+						value: '选项4',
+						label: '龙须面'
+					}, {
+						value: '选项5',
+						label: '北京烤鸭'
+					}],
+					value: ''
+				}
+			}
+		})
+	</script>
+
+</body>
+
+</html>

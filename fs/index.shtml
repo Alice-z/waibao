@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>USR</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="renderer" content="webkit">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <!--#jname-->
+  <script>
+    function changeCss(id) {
+      /*var alist = document.getElementsByClassName("cli");*/
+      var li = document.getElementsByTagName("li");
+      for (var i = 0; i < li.length; i++) {
+        li[i].style.background = "";
+      }
+      document.getElementById(id).style.background = "#ff6600";
+    }
+    function changeTitle() {
+      //var title=document.getElementById("modname").value;
+      // document.title = modname;
+    }
+
+    function shut() {
+      window.opener = null;
+      window.open('', '_self');
+      window.close();
+    }
+
+  </script>
+
+
+</head>
+
+<body onload="changeTitle()">
+  <div id="wrapper">
+
+    <div id="top">
+      <div class="top-info">
+        <p>firmware revision：v
+          <!--#revision-->
+        </p>
+        <a onclick="shut();" style="text-decoration:underline; cursor:pointer">logout</a>
+        <a href="indexcn.shtml">汉语</a>
+      </div>
+    </div>
+
+    <div id="header">
+      <img src="logo.png" alt="logo"></img>
+
+      <div id="div1">
+        <h1>Seayeap</h1>
+        <h4>-Satellite Experts-</h4>
+      </div>
+      <div id="div2">
+        <i>Win, Win! </i>
+      </div>
+
+    </div>
+
+    <div id="body">
+
+      <div id="sidebar2">
+        <!-- begin categories -->
+        <ul style="border-top-width:0px;">
+          <li id="1" style="background: rgb(255, 102, 0);">
+            <a href="status.shtml" target="ifrPage" onclick="changeCss('1')">Current Status</a>
+          </li>
+          <li id="2">
+            <a href="ipconfig.shtml" target="ifrPage" onclick="changeCss('2')">Local IP Config</a>
+          </li>
+          <li id="3">
+            <a href="sernet1.shtml" target="ifrPage" onclick="changeCss('3')">
+              <!--#p0cfg-->
+            </a>
+          </li>
+          <!--#p1cfg-->
+          <!--#p2cfg-->
+          <li id="6">
+            <a href="waibao.html" target="ifrPage" onclick="changeCss('6')">Web to Serial</a>
+          </li>
+          <li id="8">
+            <a href="misc.shtml" target="ifrPage" onclick="changeCss('8')">Misc Config</a>
+          </li>
+          <li id="9">
+            <a href="manage.shtml" target="ifrPage" onclick="changeCss('9')">Reboot</a>
+          </li>
+        </ul>
+        <!-- end meta -->
+
+      </div>
+      <!-- BEGIN content -->
+
+      <iframe id="ifrPage" name="ifrPage" src="status.shtml" frameborder="no"></iframe>
+
+      <!-- END content -->
+      <div class="break"></div>
+    </div>
+    <!-- END body -->
+    <!-- BEGIN footer -->
+    <div id="footer">
+      <div id="line">
+        <p> Copyright &copy; 2000 - 2017 &middot; Xi'an Seayeap Technology Limited
+          <div id="left">website:
+            <a href="http://www.seayeap.com/">www.seayeap.com</a>
+          </div>
+        </p>
+        <div>
+        </div>
+        <!-- END footer -->
+      </div>
+      <!-- END  -->
+</body>
+
+</html>

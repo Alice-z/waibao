@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="padding:0px;">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta content="webkit">
+<link rel="stylesheet" type="text/css" href="style2.css" />
+
+ <script>
+var socket;
+function connectx(){
+//	alert(window.location.host);
+    try{
+        socket=new WebSocket('ws://'+window.location.host+':6432');
+		socket.binaryType = "arraybuffer";
+    }catch(e){
+        alert('error');
+        return;
+    }
+    socket.onopen = sOpen;
+    socket.onerror=sError;
+    socket.onmessage=sMessage;
+    socket.onclose=sClose
+ 
+}
+function sOpen(){
+    alert('connect success!')
+}
+function sError(){
+    alert('connect error')
+}
+function sMessage(msg){
+	if (msg.data instanceof ArrayBuffer)
+	{
+		var hexValRead=document.getElementById("UartReadHexText_id");
+			var gbuf = new Uint8Array(msg.data, 0);
+		if(hexValRead.length>=10240)
+		{
+			hexValRead.value = "";
+		}
+		var dat = "";
+		for (var i in gbuf)
+			dat += "0x"+gbuf[i].toString(16) + " ";
+		hexValRead.value +="十六进制接收："+ dat+ "\r\n"; 
+	}else
+	{
+		var hexValRead=document.getElementById("UartReadHexText_id");
+		var AsciiValRead=document.getElementById("UartReadAsciiText_id");
+		if(hexValRead.length>=10240)
+		{
+			hexValRead.value = "";
+		}
+		var dat = "";
+		for (var i in msg.data)
+			dat += "0x"+msg.data.charCodeAt(i).toString(16) + " ";
+		hexValRead.value +=dat;			
+		AsciiValRead.value +=msg.data;
+	}
+}
+ 
+function sClose(){
+    alert('connect close')
+}
+function send(){
+	var hexValInput=document.getElementById("Write_uart_data_text_id");
+    socket.send(hexValInput.value);
+}
+function wssendBinary()
+{
+	var hexValInput=document.getElementById("Write_uart_data_text_id");
+	var byteArray = new Uint8Array(hexValInput.value.length);
+	if(hexValInput.value.length%2 !=0)
+	{
+		var sendArray = new Uint8Array((hexValInput.value.length+1)/2);
+	}
+	else
+	{
+		var sendArray = new Uint8Array(hexValInput.value.length/2);
+	}
+	var i;	
+	byteArray =hexValInput.value
+	
+	for(i=0;i<sendArray.length;i++)
+	{
+		if((byteArray[i*2]>='0' && byteArray[i*2]<='9')||(byteArray[i*2]>='A' && byteArray[i*2]<='F')||(byteArray[i*2]>='a' && byteArray[i*2]<='f'))
+			sendArray[i]=parseInt(byteArray[i*2], 16)*16+parseInt(byteArray[i*2+1], 16); 
+		else
+			alert('无法转化为十六进制数据!');
+	}	
+	socket.send(sendArray);    
+}
+function close(){
+    socket.close();
+}
+function Clear()
+{
+	var hexValRead=document.getElementById("UartReadHexText_id");
+	var asciiValRead=document.getElementById("UartReadAsciiText_id");
+	hexValRead.value="";
+	asciiValRead.value="";
+}
+</script>
+</head>
+<style>
+html { overflow-x:hidden; }
+</style>
+<body onload="connectx();">
+
+<form method="get">
+
+<div class="top_content" style="height:auto">
+	<div class="top">
+		<p>参数</p>
+	</div>
+
+	<div>
+		<p>Websocket connection: <!--#wsn--></p>
+	</div>
+		<div>
+		<button id="connect1" type="button" onclick="connectx()" style="display:none">Connect</button>
+		<button id="close1" type="button" onClick="sClose();" style="display:none">Close</button>
+			</div>
+	<div>
+		<textarea id="UartReadHexText_id" cols="64" rows="8">
+		Receive hex data
+		</textarea>
+	</div>
+	<div></div>	
+	<div>
+	<p>
+		  <textarea cols="64" rows="8" id="Write_uart_data_text_id"></textarea>
+		<input type=button style="{width:120px;}" value="send ascii data" onClick="send();" id="Uart_send_id">
+		<input type=button style="{width:120px;}" value="send hex data" onClick="wssendBinary();" id="Uart_wssend_id">
+
+	    <input name="button" type=button id="Uart_clear_id" onclick="Clear()" value="clear" />
+</p>
+	</div>
+
+</div>
+
+</form>
+
+	<div id="sidebar">
+      <ul>
+        <li>帮助提示</li>
+      </ul>
+	  <div id="help">
+	  <div align="left">
+	    <ul>
+		 <li id="lia">网页转串口：</li>
+         <li id="lib">本页面使用websocket实现了网页到串口的数据转发，当连接建立后，可以实现模块串口与模块网页之间的数据双向收发。</li>
+	    </ul>
+		</div>
+	  </div>
+    </div>
+	
+</body>
+</html>

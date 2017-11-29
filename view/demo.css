@@ -1,0 +1,75 @@
+*{
+    margin: 0;padding: 0;
+    box-sizing: border-box
+}
+.border{
+    box-shadow:0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04)   ;
+    margin-bottom: 20px
+}
+#app{
+  height: 100%;
+  width: 920px;
+  margin:10px  auto;
+  font-size: 13px;
+  padding: 20px;
+  box-shadow:0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04)    
+}
+#left{
+    width: 450px;
+    height: 480px;
+    float: left;
+    /* padding: 20px;   */
+    /* box-shadow:0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04)     */
+    
+}
+#right{
+    margin-left: 470px;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04) ;
+    height: 480px;
+}
+.footer{
+    padding:0 20px;
+    margin-top: 20px;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04) ;
+}
+.info{
+    height: 80px;
+    padding: 20px;  
+  
+}
+.sele{
+    width: 70px;
+    height: 20px
+}
+input{
+    width: 102px;
+    height: 20px;
+    outline: none
+}
+.line{
+    margin-bottom:10px 
+}
+.el-select-dropdown__item{
+    padding: 0 10px!important;
+    height: 20px!important
+}
+.start{
+    height: 330px;
+    padding: 20px
+}
+.title::before {
+    content: '';
+    border-left: 0.5rem solid #f66;
+    position: relative;
+    left: -0.5rem;
+    height: 75%;
+}
+label{
+    margin-right: 10px
+}
+.mr{
+    margin-right: 20px
+}
+hr{
+    margin: 15px -10px
+}

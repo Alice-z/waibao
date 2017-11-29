@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="padding:0px;">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style2.css" />
+
+</head>
+<style>
+html { overflow-x:hidden; }
+</style>
+<body>
+
+<form action="misc.cgi" method="get">
+
+  <div class="top_content" style="height:auto">
+  <div class="top">
+    <p>parameter</p>
+  </div>
+  <table width="100%" border="0" cellpadding="2" cellspacing="2" >
+    <tbody>
+      <tr>
+        <td width="50%" bgcolor="#FFFFFF" class="gr"><div align="right">Module name:</div></td>
+        <td><div align="left">
+          <!--#modninp-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">Reserved:</div></td>
+        <td><div align="left">
+          <!--#pnpinp-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">Webserver port:</div></td>
+        <td><div align="left">
+          <!--#htpprt-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">Module id(use for indentify modue):</div></td>
+        <td><div align="left">
+          <!--#id-->
+          (1~65535)</div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">Module id type:</div></td>
+        <td><div align="left">
+          <!--#idtype-->
+          (0/1/2/3)</div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">MAC address: </div></td>
+        <td><div align="left">
+            <!--#usrmac-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">User name: </div></td>
+        <td><div align="left">
+            <!--#username-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">Pass word:</div></td>
+        <td><div align="left">
+            <!--#password-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">Buffer data before connected:</div></td>
+        <td><div align="left">
+          <!--#ifbuf-->
+        </div></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" class="gr"><div align="right">Reset timeout:</div></td>
+        <td><div align="left">
+          <!--#tout--> second
+        </div></td>
+      </tr>
+	  	  
+      <tr>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button class="button" type="submit">Save</button>
+<button class="button" type="reset" onclick="window.location.href='misc.shtml' ">Cancel</button>
+</form>
+
+	<div id="sidebar">
+      <ul>
+        <li>help</li>
+      </ul>
+	  <div id="help">
+	  <div align="left">
+	    <ul>
+		 <li id="lia">module name</li>
+         <li id="lib">max length is 15 char </li>
+         <li id="lia">Web port</li>
+         <li id="lib">default 80  </li>
+         <li id="lia">ID and ID type</li>
+	     <li id="lib">we could use it for D2D</li>
+	     <li id="lia">Mac address</li>
+	     <li id="lib">user could modify this MAC address</li>
+	     <li id="lia">Buffer data</li>
+	     <li id="lib">default not checked, buffer data before tcp connection established</li>
+	     <li id="lia">reset timeout</li>
+	     <li id="lib">default 0, 0-60 mean no timeout, >60 mean when there is no data received during this time, the device will restart</li>
+	    </ul>
+		</div>
+	  </div>
+    </div>
+	
+</body>
+</html>

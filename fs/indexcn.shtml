@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>欣业便携站</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="renderer" content="webkit">
+<link rel="stylesheet" type="text/css" href="style.css" />
+<!--#jname-->
+<script>
+function changeCss(id){ 
+/*var alist = document.getElementsByClassName("cli");*/
+var li=document.getElementsByTagName("li");
+  	for(var i =0;i < li.length;i++){
+	li[i].style.background="";
+	}
+	document.getElementById(id).style.background="#ff6600";
+}
+function changeTitle(){ 
+//var title=document.getElementById("modname").value;
+document.title = modname;
+}
+
+function shut(){  
+    window.opener=null;  
+    window.open('','_self');  
+    window.close();  
+}  
+</script> 
+
+</head>
+
+<body onload="changeTitle()">
+<div id="wrapper">
+
+  <div id="top"><div class="top-info">
+    <p>固件：v<!--#revision--></p>   <a onclick="shut();" style="text-decoration:underline; cursor:pointer">logout</a> <a href="index.shtml">English</a></div>
+  </div>
+  
+  <div id="header">
+    <img src="logo.png"  alt="logo" ></img>
+	
+	<div id="div1">
+	<h1>欣业便携站</h1>
+	<h4>-卫星通信专家-</h4>
+	</div>
+	<div id="div2">合作共赢<i>！</i>
+	</div>
+	
+  </div>
+  
+  <div id="body">
+
+	<div id="sidebar2">
+      <!-- begin categories -->
+      <ul style="border-top-width:0px;">
+	    <li id="1" style="background: rgb(255, 102, 0);"><a href="statuscn.shtml" target="ifrPage" onclick="changeCss('1')">当前状态</a></li>
+        <li id="2"><a href="ipconfigcn.shtml" target="ifrPage" onclick="changeCss('2')">本机IP设置</a></li>
+        <li id="3"><a href="sernet1cn.shtml" target="ifrPage" onclick="changeCss('3')"><!--#p0cfg--></a></li>
+        <!--#p1cfg-->
+        <!--#p2cfg-->
+        <li id="6"><a href="websocketcn.shtml" target="ifrPage" onclick="changeCss('6')">网页转串口</a></li>
+        <li id="8"><a href="misccn.shtml" target="ifrPage" onclick="changeCss('8')">高级设置</a></li>
+        <li id="9"><a href="managecn.shtml" target="ifrPage" onclick="changeCss('9')">模块管理</a></li>
+      </ul>
+      <!-- end meta -->
+	   
+    </div>
+	<!-- BEGIN content -->
+	
+	 <iframe id="ifrPage" name="ifrPage" src="statuscn.shtml" frameborder="no"></iframe>
+    
+	 <!-- END content -->
+    <div class="break"></div>
+  </div>
+  <!-- END body -->
+  <!-- BEGIN footer -->
+  <div id="footer">
+  <div id="line">
+    <p>  Copyright &copy; 2009 - 2015 &middot; Xi'an Seayeap Technology Limited <div id="left">官网：<a href="http://www.seayeap.com">www.seayeap.com</a></div> </p> 
+  <div>
+  </div>
+  <!-- END footer -->
+</div>
+<!-- END  -->
+</body>
+</html>

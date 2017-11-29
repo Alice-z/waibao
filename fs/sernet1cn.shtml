@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="padding:0px;">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style2.css" />
+
+</head>
+<style>
+html { overflow-x:hidden; }
+</style>
+<!--#p0vars--><!--#p0tvars--><!--#p0ipvar--><!--#uart0var-->
+<script type="text/javascript" src="cfg.js"></script>
+<body onLoad="SetFormDefaults()">
+
+<form  name="config" action="config.cgi" method="get">
+<input name="port" value="0" type="hidden">
+<div class="top_content" style="width：auto; height:auto">
+  <div class="top">
+    <p>参数</p>
+  </div>
+  <table width="100%" border="0" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td width="39%" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">波特率： </div></td>
+        <td width="61%"><div align="left">
+          <input name="br" id="br" size="8" maxlength="7" />
+          bps(600~1024000) </div></td>
+      </tr>
+      <tr>
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">数据位：</div></td>
+        <td><div align="left">
+          <select size="1" name="bc">
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8" selected="selected">8</option>
+          </select>
+          bit</div></td>
+      </tr>
+      <tr>
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">校验位： </div></td>
+        <td><div align="left">
+          <select name="parity">
+            <option value="1">None</option>
+            <option value="2">Odd</option>
+            <option value="3">Even</option>
+            <option value="4">Mark</option>
+            <option value="5">Space</option>
+          </select>
+        </div></td>
+      </tr>
+      <tr>
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">停止位： </div></td>
+        <td><div align="left">
+          <select size="1" name="stop">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            </select>
+          bit</div></td>
+      </tr>
+      <tr>
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">流控与RS485：</div></td>
+        <td><div align="left">
+          <select size="1" name="flow">
+            <option value="1">None</option>
+            <option value="3">Hardware</option>
+            <option value="5">RS485</option>
+          </select>
+        </div></td>
+      </tr>
+      <tr>
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">本地端口： </div></td>
+        <td><div align="left">
+          <input maxlength="5" size="6" name="tlp" />
+        </div>
+          <label></label></td>
+      </tr>
+      <tr>
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">远程端口：</div></td>
+        <td><div align="left">
+          <input maxlength="5" size="6" name="trp" />
+        </div></td>
+      </tr>
+      <tr>
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">工作方式：</div></td>
+        <td><div align="left">
+          <select size="1" name="tnmode" onchange="SetIPState();">
+            <option value="0">UDP Mode</option>
+            <option value="1" selected="selected">TCP Client</option>
+            <option value="2">UDP Server</option>
+              <option value="3">TCP Server</option>
+              <option value="4">Httpd Client</option>
+          </select>
+
+              <select name="mbtp" size="1">
+                <option value="0">None</option>
+                <option value="1">ModbusTCP</option>
+              </select>
+        </div>          </td>
+      </tr>
+      <tr id="tcps1">
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">TCP Server样式：</div></td>
+        <td><div align="left">
+          <select name="tcpstx" size="1" id="linktype">
+            <option value="1" selected="selected">default</option>
+          </select>
+          type </div></td>
+      </tr>
+      <tr id="hpdh1">
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">HTTPD Client头自定义(<180byte)：</div></td>
+        <td><label>
+          <div align="left">
+            <!--#p0hhr-->
+            </div>
+        </label></td>
+      </tr>
+      <tr>
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">远程服务器地址： </div></td>
+        <td><div align="left">
+              <!--#p0url1-->
+          [
+            <!--#p0url-->
+          ]</div></td>
+      </tr>
+      <tr>
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"> <div align="right">超时时间： </div></td>
+        <td><div align="left">
+              <input maxlength="4" size="6" name="tto" />
+          seconds <font size="-1">(&lt; 256, 0 for no timeout)</font></div></td>
+      </tr>
+      <tr>
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">串口打包时间：</div></td>
+        <td><div align="left">
+              <input maxlength="4" size="6" name="tim" />
+          ms <font size="-1">(&lt; 256)</font></div></td>
+      </tr>
+      <tr>
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">串口打包长度：</div></td>
+        <td><div align="left">
+              <input maxlength="4" size="6" name="num" />
+          chars <font size="-1">(&lt;= 1460, 0 for no use)</font></div></td>
+      </tr>
+      <tr>
+        <td bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="gr"><div align="right">同步波特率（2217）：</div></td>
+        <td><div align="left">
+          <input name="srf" type="checkbox" value="1" />            
+        </div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<button class="button" type="submit">保存设置</button>
+<button class="button" type="reset" onclick="window.location.href='sernet1cn.shtml' ">不保存设置</button>
+</form>
+
+	<div id="sidebar">
+      <ul>
+        <li>帮助提示</li>
+      </ul>
+	  <div id="help">
+	    <div align="left">
+	      <ul>
+	        <li id="lia">波特率</li>
+	        <li id="lib">232 与 485 最高只能到 115200bps</li>
+	        <li id="lia">流控与 RS485</li>
+	        <li id="lib">默认为 RS485</li>
+	        <li id="lia">本地端口</li>
+	        <li id="lib">1~65535. 当模块做TCP Client时，本地端口为0表示使用随机的本地端口</li>
+	        <li id="lia">远程端口</li>
+	        <li id="lib">1~65535</li>
+	        <li id="lia">打包时间/长度</li>
+	        <li id="lib">默认0/0，使用自动打包机制；也可以设置为非0值</li>			
+	        <li></li>
+          </ul>
+        </div>
+	  </div>
+    </div>
+</body>
+</html>
