@@ -87,6 +87,7 @@ input{
   font-size: 20px
 }
 textarea{
-  outline: none
+  outline: none;
+  border: none
 }
 </style>
