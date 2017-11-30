@@ -30,7 +30,7 @@ body {
   height: 100%;
 }
 #app {
-  width: 920px;
+  width: 950px;
   margin: 10px auto;
   font-size: 13px;
   padding: 20px;

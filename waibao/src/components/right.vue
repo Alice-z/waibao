@@ -3,15 +3,15 @@
     <el-tag v-text="'天线状态信息'"  type="info" />
     <div class="border box"  >
       <div>
-      <label  for="" v-text="'方位:'"/>
+      <label style="margin-left:40px"  v-text="'方位:'"/>
       <input class="label" type="text" disabled placeholder="00:00">
-      <label  for="" v-text="'俯仰:'"/>
+      <label  style="margin-left:40px" v-text="'俯仰:'"/>
       <input class="label" type="text" disabled placeholder="00:00">
       </div>
       <div>
-      <label  for="" v-text="'极化:'"/>
+      <label style="margin-left:40px"  v-text="'极化:'"/>
       <input class="label" type="text" disabled placeholder="00:00">
-      <label  for="" v-text="'电平:'"/>
+      <label style="margin-left:40px"  v-text="'电平:'"/>
       <input class="label" type="text" disabled placeholder="00:00">
       </div>
     </div>
@@ -40,9 +40,8 @@
       </div>
     </div>
     <el-tag v-text="'天线状态信息'"  type="info" />
-    <div class="border box">
-      <textarea name="" id="" cols="60" rows="6">Send:(M)
-      </textarea>
+    <div class="border msg box">
+      Send:(M) 
     </div>    
 	</div>
 </template>
@@ -65,7 +64,10 @@ data(){
 .none{
   opacity: 0;
 }
-
+.msg{
+  width: 450px;
+  height: 113px;
+}
 .label{
   margin: 5px 0
 }
@@ -75,7 +77,7 @@ data(){
   color: blue
 }
 .red{
-  color: red
+  color: red!important
 }
 input{
   background: #878d99;

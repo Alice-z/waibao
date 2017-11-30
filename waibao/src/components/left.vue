@@ -58,11 +58,12 @@
 					<label>卫星频率:</label>
 					<input type="text">
 				</div>
-				<hr>
+				<hr style="opacity:0" >
+				<hr >
 				<!-- 自动寻星 -->
 				<div class="line title">第三步 自动寻星</div>
-				<el-button type="info" icon="el-icon-search">寻星</el-button>
-				<el-button style="margin-left:150px" type="info" icon="el-icon-star-on">收藏</el-button>
+				<el-button style="margin-left:70px" type="info" icon="el-icon-search">寻星</el-button>
+				<el-button style="margin-left:70px" type="info" icon="el-icon-star-on">收藏</el-button>
 			</div>
 			<!-- 自动对星 end -->
 		</div>
